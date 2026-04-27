@@ -1,0 +1,616 @@
+/* ================= GLOBAL ================= */
+
+.apply-wrapper{
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:120px 20px;
+background:linear-gradient(135deg,#020617,#111827);
+position:relative;
+overflow:hidden;
+perspective:1200px;
+}
+
+/* ================= FLOATING BACKGROUND ================= */
+
+.apply-wrapper::before{
+content:"";
+position:absolute;
+width:500px;
+height:500px;
+background:linear-gradient(45deg,#00d4ff,#7c3aed);
+filter:blur(120px);
+top:-150px;
+left:-150px;
+opacity:.25;
+animation:float1 10s infinite alternate;
+}
+
+.apply-wrapper::after{
+content:"";
+position:absolute;
+width:450px;
+height:450px;
+background:linear-gradient(45deg,#ff4ecd,#ff7a18);
+filter:blur(120px);
+bottom:-150px;
+right:-150px;
+opacity:.25;
+animation:float2 12s infinite alternate;
+}
+
+@keyframes float1{
+from{transform:translateY(0)}
+to{transform:translateY(120px)}
+}
+
+@keyframes float2{
+from{transform:translateY(0)}
+to{transform:translateY(-120px)}
+}
+
+/* ================= HERO ================= */
+
+.apply-hero{
+height:60vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+color:white;
+background:linear-gradient(135deg,#111827,#020617);
+}
+
+.apply-hero-overlay h1{
+font-size:42px;
+margin-bottom:10px;
+}
+
+.apply-hero-overlay p{
+opacity:.8;
+font-size:18px;
+}
+
+.scroll-down{
+margin-top:30px;
+font-size:16px;
+opacity:.7;
+animation:bounce 2s infinite;
+cursor:pointer;
+}
+
+@keyframes bounce{
+0%,100%{transform:translateY(0)}
+50%{transform:translateY(10px)}
+}
+
+/* ================= JOB DETAILS ================= */
+/* ================= JOB DETAILS ================= */
+
+.job-details{
+display:flex;
+justify-content:center;
+align-items:center;
+padding:100px 20px;
+background:linear-gradient(180deg,#020617,#020617,#020617);
+}
+
+/* MAIN CARD */
+
+.job-card-details{
+
+display:flex;
+align-items:center;
+justify-content:space-between;
+
+gap:50px;
+
+max-width:1100px;
+width:100%;
+
+padding:45px;
+
+border-radius:24px;
+
+background:#0f172a;
+
+border:1px solid #1e293b;
+
+box-shadow:
+0 20px 60px rgba(0,0,0,.6),
+inset 0 0 20px rgba(255,255,255,.03);
+
+transition:.4s;
+
+position:relative;
+overflow:hidden;
+
+}
+
+/* glow border */
+
+.job-card-details::before{
+
+content:"";
+position:absolute;
+
+top:-2px;
+left:-2px;
+right:-2px;
+bottom:-2px;
+
+border-radius:24px;
+
+background:linear-gradient(
+120deg,
+transparent,
+rgba(0,255,255,.25),
+transparent
+);
+
+opacity:0;
+transition:.4s;
+
+}
+
+.job-card-details:hover::before{
+opacity:1;
+}
+
+/* hover lift */
+
+.job-card-details:hover{
+transform:translateY(-10px) scale(1.01);
+}
+
+/* ================= LEFT CONTENT ================= */
+
+.job-content-details{
+flex:1;
+}
+
+.job-content-details h2{
+font-size:32px;
+color:white;
+margin-bottom:12px;
+font-weight:600;
+}
+
+.company-details{
+font-size:16px;
+color:#94a3b8;
+margin-bottom:8px;
+}
+
+.location-details{
+font-size:15px;
+color:#cbd5f5;
+}
+
+.description-details{
+margin-top:15px;
+line-height:1.6;
+color:#cbd5f5;
+font-size:15px;
+}
+
+/* SALARY BADGE */
+
+.salary-details{
+
+display:inline-block;
+margin-top:15px;
+padding:8px 20px;
+
+border-radius:40px;
+
+font-size:14px;
+font-weight:600;
+
+background:linear-gradient(135deg,#6366f1,#06b6d4);
+
+color:white;
+
+box-shadow:0 6px 20px rgba(99,102,241,.5);
+
+}
+
+/* ================= IMAGE ================= */
+
+.job-image-details{
+
+flex:1;
+height:280px;
+
+border-radius:18px;
+overflow:hidden;
+
+position:relative;
+
+}
+
+/* IMAGE */
+
+.job-image-details img{
+
+width:100%;
+height:100%;
+
+object-fit: fill;
+
+border-radius:18px;
+
+transition:transform .5s ease;
+
+}
+
+/* image zoom */
+
+.job-card-details:hover img{
+transform:scale(1.08);
+}
+
+/* image overlay */
+
+.job-image-details::after{
+
+content:"";
+position:absolute;
+
+top:0;
+left:0;
+width:100%;
+height:100%;
+
+background:linear-gradient(
+to top,
+rgba(0,0,0,.4),
+transparent
+);
+
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:900px){
+
+.job-card-details{
+flex-direction:column;
+text-align:center;
+padding:35px;
+}
+
+.job-image-details{
+width:100%;
+height:220px;
+}
+
+.job-content-details h2{
+font-size:26px;
+}
+
+}
+
+@media(max-width:500px){
+
+.job-details{
+padding:70px 15px;
+}
+
+.job-card-details{
+gap:30px;
+padding:25px;
+}
+
+}
+/* ================= STEP PROGRESS ================= */
+
+.apply-progress{
+
+display:flex;
+justify-content:center;
+
+gap:80px;
+
+margin:80px 0;
+
+position:relative;
+
+}
+
+.apply-progress::before{
+
+content:"";
+position:absolute;
+
+top:22px;
+left:30%;
+
+width:40%;
+height:4px;
+
+background:#1e293b;
+
+}
+
+.step{
+
+display:flex;
+flex-direction:column;
+align-items:center;
+
+opacity:.4;
+
+transition:.4s;
+
+}
+
+.step span{
+
+width:45px;
+height:45px;
+
+border-radius:50%;
+
+background:#1e293b;
+color:white;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+font-weight:bold;
+font-size:18px;
+
+}
+
+.step.active{
+
+opacity:1;
+transform:scale(1.1);
+
+}
+
+.step.active span{
+
+background:linear-gradient(45deg,#4facfe,#00f2fe);
+
+box-shadow:
+0 0 10px #00f2fe,
+0 0 20px #00f2fe;
+
+}
+
+/* ================= APPLICATION CARD ================= */
+
+.apply-card{
+
+width:100%;
+max-width:460px;
+
+padding:40px;
+
+border-radius:20px;
+
+background:#0f172a;
+
+border:1px solid #1e293b;
+
+box-shadow:0 30px 80px rgba(0,0,0,.7);
+
+transition:transform .4s ease;
+
+position:relative;
+
+}
+
+.apply-card:hover{
+transform:translateY(-6px);
+}
+
+/* ================= FORM ================= */
+
+.input-group{
+position:relative;
+margin-bottom:25px;
+}
+
+.input-group input,
+.input-group textarea{
+
+width:100%;
+padding:14px 15px;
+
+border-radius:10px;
+
+border:1px solid #334155;
+
+background:#020617;
+
+color:white;
+
+font-size:15px;
+
+outline:none;
+
+transition:.3s;
+
+}
+
+.input-group textarea{
+resize:none;
+}
+
+.input-group input:focus,
+.input-group textarea:focus{
+
+border-color:#38bdf8;
+
+box-shadow:0 0 10px rgba(56,189,248,.4);
+
+}
+
+.input-group label{
+
+position:absolute;
+
+left:12px;
+top:12px;
+
+font-size:14px;
+
+color:#aaa;
+
+pointer-events:none;
+
+transition:.3s;
+
+}
+
+.input-group input:focus + label,
+.input-group textarea:focus + label,
+.input-group input:not(:placeholder-shown) + label{
+
+top:-10px;
+left:8px;
+
+font-size:12px;
+
+color:#38bdf8;
+
+background:#020617;
+
+padding:0 6px;
+
+}
+
+/* ================= FILE INPUT ================= */
+
+input[type="file"]{
+color:#aaa;
+}
+
+/* ================= SUBMIT BUTTON ================= */
+
+.submit-btn{
+
+width:100%;
+padding:14px;
+
+border:none;
+
+border-radius:12px;
+
+font-size:16px;
+font-weight:600;
+
+cursor:pointer;
+
+color:white;
+
+background:linear-gradient(135deg,#6366f1,#06b6d4);
+
+box-shadow:0 10px 30px rgba(99,102,241,.5);
+
+transition:.35s;
+
+}
+
+.submit-btn:hover{
+
+transform:translateY(-3px);
+
+box-shadow:0 15px 40px rgba(6,182,212,.7);
+
+}
+
+/* ================= SUCCESS MESSAGE ================= */
+
+.success-page{
+
+position:fixed;
+
+top:50%;
+left:50%;
+
+transform:translate(-50%,-50%);
+
+background:#0f172a;
+
+padding:60px 80px;
+
+border-radius:18px;
+
+border:1px solid #1e293b;
+
+box-shadow:0 30px 80px rgba(0,0,0,.7);
+
+text-align:center;
+
+color:white;
+
+z-index:9999;
+
+animation:successPop .6s ease;
+
+}
+
+.success-page h1{
+font-size:34px;
+margin-bottom:10px;
+}
+
+.success-page p{
+opacity:.8;
+}
+
+@keyframes successPop{
+
+0%{
+transform:translate(-50%,-60%) scale(.8);
+opacity:0;
+}
+
+100%{
+transform:translate(-50%,-50%) scale(1);
+opacity:1;
+}
+
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:900px){
+
+.job-card-details{
+flex-direction:column;
+text-align:center;
+}
+
+.job-image-details{
+justify-content:center;
+}
+
+.job-image-details img{
+max-width:100%;
+height:220px;
+}
+
+}
+
+@media(max-width:600px){
+
+.apply-card{
+padding:30px;
+}
+
+.apply-hero-overlay h1{
+font-size:30px;
+}
+
+.apply-progress{
+gap:40px;
+}
+
+}
