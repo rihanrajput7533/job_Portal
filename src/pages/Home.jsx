@@ -12,6 +12,14 @@ const Home = () => {
   const [location, setLocation] = useState("");
   const [jobs, setJobs] = useState([]);
 
+  useEffect(() => {
+  const cards = document.querySelectorAll(".job-card");
+
+  cards.forEach((card, i) => {
+    card.style.animation = `fadeUp 0.8s ease ${i * 0.1}s forwards`;
+  });
+}, [jobs]);
+
   // Load jobs
   useEffect(() => {
     const storedJobs = JSON.parse(localStorage.getItem("jobs"));
